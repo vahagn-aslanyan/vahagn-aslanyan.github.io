@@ -1,0 +1,85 @@
+body {
+	margin-left: 200px;
+	margin-right: 200px;
+}
+
+h1 {
+	text-align: center;
+	font-size: 35px;
+}
+
+h5 {
+	padding: 0;
+	margin: 0;
+	margin-bottom: 5px;
+}
+
+
+.vertical-menu {
+    width: 200px; /* Set a width if you like */
+    float: right;
+}
+
+.vertical-menu a {
+    background-color: #E2E8E9; /* Grey background color */
+    color: black; /* Black text color */
+    display: block; /* Make the links appear below each other */
+    padding: 12px; /* Add some padding */
+    text-decoration: none; /* Remove underline from links */
+}
+
+.vertical-menu a:hover {
+    background-color: #ccc; /* Dark grey background on mouse-over */
+    text-decoration: none;
+}
+
+.vertical-menu a.active {
+    background-color: #002147; /* Add a green color to the "active/current" link */
+    color: white;
+}
+
+a:link {
+    text-decoration: none;
+    target: _blank;
+}
+
+a:visited {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+a:active {
+    text-decoration: underline;
+}
+
+
+
+details {
+overflow: hidden;
+background: transparent;
+margin-left: 10px;
+margin-top: 7px;
+margin-bottom: 7px;
+width: 550px;
+}
+
+details[open] {
+background: transparent;
+margin-left: 10px;
+margin-top: 7px;
+margin-bottom: 7px;
+}
+
+details summary {
+cursor: pointer;
+padding-bottom: 10px;
+font-size: 16px;
+}
+
+summary::-webkit-details-marker {
+color: rgb(101,115,156);
+}
+

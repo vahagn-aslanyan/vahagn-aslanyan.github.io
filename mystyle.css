@@ -99,9 +99,7 @@ color: rgb(101,115,156);
   margin: 0;
 }
 
-.vertical-menu a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
-}
+
 
 .dropdown-content {
   display: none;

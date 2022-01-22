@@ -14,29 +14,58 @@ h5 {
 	margin-bottom: 5px;
 }
 
-
-.vertical-menu {
-    width: 200px; /* Set a width if you like */
-    float: right;
-}
-
-.vertical-menu a {
-    background-color: #E2E8E9; /* Grey background color */
-    color: black; /* Black text color */
-    display: block; /* Make the links appear below each other */
-    padding: 12px; /* Add some padding */
-    text-decoration: none; /* Remove underline from links */
-}
-
-.vertical-menu a:hover {
-    background-color: #ccc; /* Dark grey background on mouse-over */
+ul.nav {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #E2E8E9;
     text-decoration: none;
 }
 
-.vertical-menu a.active {
-    background-color: #002147; /* Add a green color to the "active/current" link */
-    color: white;
+li.nav {
+    float: left;
 }
+
+li.nav a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 10px 15px;
+	margin: 0;
+    text-decoration: none;
+    target: _self;
+}
+
+li.nav a:hover:not(.active) {
+    background-color: #ccc;
+}
+
+.active {
+    background-color: #002147;
+}
+
+ul.nobul {
+	list-style-type: none;
+	margin: 0cm;
+	padding: 0cm;
+	padding-left: 0cm;
+}
+
+li {
+	padding: 3px 0px;
+}
+
+li ul {
+	margin: 0;
+	padding: 3px 25px;
+}
+
+li dd {
+	margin: 0;
+	padding: 3px 10px;
+}
+
 
 a:link {
     text-decoration: none;

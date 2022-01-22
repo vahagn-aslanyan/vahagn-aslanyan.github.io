@@ -146,3 +146,17 @@ margin-bottom:7px;
 
 table.courses td { width: 12%; } 
 table.courses td+td { width: 88%; }
+
+
+figure {
+    display: inline-block;
+    border: 1px dotted gray;
+    margin: 20px; /* adjust as needed */
+}
+figure img {
+    vertical-align: top;
+}
+figure figcaption {
+    border: 1px dotted blue;
+    text-align: center;
+}

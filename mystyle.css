@@ -3,6 +3,12 @@ body {
 	margin-right: 200px;
 }
 
+.top-container {
+  background-color: #E2E8E9;
+  padding: 10px;
+  text-align: center;
+}
+
 h1 {
 	text-align: center;
 	font-size: 35px;
@@ -146,6 +152,21 @@ margin-bottom:7px;
 
 table.courses td { width: 12%; } 
 table.courses td+td { width: 88%; }
+
+.content {
+  padding: 16px;
+ 
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  width: 73.5%;
+}
+
+.sticky + .content {
+  padding-top: 102px;
+}
 
 
 figure {

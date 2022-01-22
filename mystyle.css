@@ -28,7 +28,7 @@ li.nav {
 
 li.nav a {
     display: block;
-    color: white;
+    color: black;
     text-align: center;
     padding: 10px 15px;
 	margin: 0;
@@ -42,6 +42,7 @@ li.nav a:hover:not(.active) {
 
 .active {
     background-color: #002147;
+    color: white;
 }
 
 ul.nobul {

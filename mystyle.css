@@ -19,7 +19,10 @@ ul.nav {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #E2E8E9;
+    background-color: #AD3038;
+    <!--
+    rgb(101,115,156);
+    -->
 }
 
 li.nav {
@@ -28,7 +31,7 @@ li.nav {
 
 li.nav a {
     display: block;
-    color: black;
+    color: white;
     text-align: center;
     padding: 10px 15px;
 	margin: 0;
@@ -37,12 +40,14 @@ li.nav a {
 }
 
 li.nav a:hover:not(.active) {
-    background-color:  #ccc;
+    background-color: #6E1F24;
+    <!--
+    rgb(65,74,101);
+    -->
 }
 
-li.nav a.active {
-    background-color: #002147;
-    color: white;
+.active {
+    background-color: black;
 }
 
 ul.nobul {

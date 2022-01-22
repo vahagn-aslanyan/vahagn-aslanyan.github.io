@@ -16,7 +16,12 @@
 
 <body style="background-color:#EFFAF1;">
 
-<h1> Vahagn Aslanyan </h1>
+<div class="top-container">
+  <h1>Vahagn Aslanyan</h1>
+
+</div>
+
+<div class="nav" id="myHeader">
 
 
 <nav>
@@ -30,10 +35,11 @@
 </ul>
 </nav>
 
+</div>
 <br>
 
-
-
+<div class="content">
+	
 <h2>Teaching</h2>
 	
 <h3>University of East Anglia</h3>
@@ -66,13 +72,27 @@ Slides available <a href="o-minimality.pdf">here</a>.
 <p> Fall 2017 <font color="green">Number Theory</font> </p>
 	
 
-	
-	
-
 
 <h2>Lecture Notes</h2>
 
 <a href="numbertheory.pdf">Number Theory</a>
+	
+</div>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+</script>
 
 
 </body>

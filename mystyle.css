@@ -19,8 +19,10 @@ ul.nav {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color: #E2E8E9;
-    text-decoration: none;
+    background-color: #AD3038;
+    <!--
+    rgb(101,115,156);
+    -->
 }
 
 li.nav {
@@ -38,11 +40,14 @@ li.nav a {
 }
 
 li.nav a:hover:not(.active) {
-    background-color: #ccc;
+    background-color: #6E1F24;
+    <!--
+    rgb(65,74,101);
+    -->
 }
 
 .active {
-    background-color: #002147;
+    background-color: black;
 }
 
 ul.nobul {
@@ -66,7 +71,6 @@ li dd {
 	padding: 3px 10px;
 }
 
-
 a:link {
     text-decoration: none;
     target: _blank;
@@ -84,7 +88,29 @@ a:active {
     text-decoration: underline;
 }
 
+ol.arm {
+	list-style-type: lower-armenian;
+	margin: 0;
+	margin-bottom: 6pt;
+	padding-left: 30px;
+}
 
+ol.spaced li { 
+	margin-bottom: 8pt; 
+}
+
+ul.spaced li { 
+margin-bottom: 8pt; 
+}
+
+p.indented {
+	padding-left: 1em;
+}
+
+ul.indented {
+	margin-left: 1em;
+	margin-top: 0pt;
+}
 
 details {
 overflow: hidden;
@@ -111,3 +137,17 @@ font-size: 16px;
 summary::-webkit-details-marker {
 color: rgb(101,115,156);
 }
+
+table td, table td * {
+vertical-align: top;
+}
+
+table.courses { 
+table-layout: auto;
+width: 65%;
+margin-left: 10px; 
+margin-bottom:7px; 
+}
+
+table.courses td { width: 12%; } 
+table.courses td+td { width: 88%; }

@@ -18,9 +18,13 @@
 
 <body style="background-color:#EFFAF1;">
 
-<h1> <font color="#002147">Vahagn Aslanyan </font></h1>
-	
-	
+
+<div class="top-container">
+  <h1>Vahagn Aslanyan</h1>
+
+</div>
+
+<div class="nav" id="myHeader">	
 <nav>
 <ul class="nav">
 	<li class="nav"><a href="./index.html" target="_self" class="active">Home</a></li>
@@ -32,7 +36,10 @@
 </ul>
 </nav>
 
+</div>
 <br>
+
+<div class="content">
 
 <img src="me.jpg" alt="A picture of me" hspace="20" style="margin-left:10px;float:left;width:205px;height:307.5px">
 
@@ -46,6 +53,23 @@
 <a href="https://people.maths.ox.ac.uk/zilber/">Boris Zilber</a> and <a href="https://www.maths.ox.ac.uk/people/jonathan.pila">Jonathan Pila</a>. I received by bachelor's 
 	degree from  <a href="http://ysu.am/main/en">Yerevan State University</a> in 2013.
 </p>
+	
+</div>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+</script>
 
 
 </body>

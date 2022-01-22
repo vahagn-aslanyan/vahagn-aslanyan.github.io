@@ -150,14 +150,14 @@ table.courses td+td { width: 88%; }
 
 figure {
     display: inline-block;
-    border: 1px dotted gray;
-    margin: 20px; /* adjust as needed */
+    border: none;
+    margin: 0px; /* adjust as needed */
 }
 figure img {
     vertical-align: top;
 }
 figure figcaption {
-    border: 1px dotted blue;
+    border: none;
     text-align: center;
 }
 

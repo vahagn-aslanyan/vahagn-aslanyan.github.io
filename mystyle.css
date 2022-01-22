@@ -42,7 +42,6 @@ li.nav a:hover:not(.active) {
 
 .active {
     background-color: #002147;
-    color: white;
 }
 
 ul.nobul {

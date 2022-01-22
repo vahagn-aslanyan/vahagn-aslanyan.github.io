@@ -18,7 +18,12 @@
 
 <body style="background-color:#EFFAF1;">
 
-<h1> <font color="#002147">Vahagn Aslanyan </font></h1>
+<div class="top-container">
+  <h1>Vahagn Aslanyan</h1>
+
+</div>
+
+<div class="nav" id="myHeader">
 	
 	
 <nav>
@@ -31,6 +36,11 @@
 	<li class="nav"><a href="./contact.html" target="_self">Contact Information</a></li>
 </ul>
 </nav>
+	
+</div>
+<br>
+
+<div class="content">
 
 <div class="header">
   <h2>Blog Name</h2>
@@ -73,6 +83,24 @@
 <div class="footer">
   <h2>Footer</h2>
 </div>
+	
+	
+</div>
+
+<script>
+window.onscroll = function() {myFunction()};
+
+var header = document.getElementById("myHeader");
+var sticky = header.offsetTop;
+
+function myFunction() {
+  if (window.pageYOffset > sticky) {
+    header.classList.add("sticky");
+  } else {
+    header.classList.remove("sticky");
+  }
+}
+</script>
 
 
 </body>

@@ -159,9 +159,8 @@ table.courses td+td { width: 88%; }
 }
 
 .sticky {
-  position: fixed;
+  position: sticky;
   top: 0;
-  width: 73.5%;
 }
 
 .sticky + .content {

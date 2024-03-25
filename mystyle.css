@@ -132,7 +132,7 @@ margin-bottom: 7px;
 details summary {
 cursor: pointer;
 padding-bottom: 10px;
-font-size: 18px;
+font-size: 16px;
 }
 
 summary::-webkit-details-marker {

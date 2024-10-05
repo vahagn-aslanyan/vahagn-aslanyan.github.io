@@ -34,6 +34,11 @@ h5 {
 	margin-bottom: 5px;
 }
 
+br {
+   display: block;
+   margin: 5px 0;
+}
+
 ul.nav {
     list-style-type: none;
     margin: 0;

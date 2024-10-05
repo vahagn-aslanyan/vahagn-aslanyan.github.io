@@ -21,23 +21,11 @@ h1 {
 	font-size: 35px;
 }
 
-h2 {
-	padding: 0;
-	margin: 0;
-	margin-bottom: 5px;
-	font-size: 25px;
-}
 
 h5 {
 	padding: 0;
 	margin: 0;
 	margin-bottom: 5px;
-}
-
-br {
-            display: block; /* makes it have a width */
-            content: ""; /* clears default height */
-            margin-top: 5px; /* change this to whatever height you want it */
 }
 
 

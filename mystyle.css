@@ -34,10 +34,10 @@ h5 {
 	margin-bottom: 5px;
 }
 
-br { 
-	display:block; 
-  	  margin-top:5px; 
-  	  line-height:5px; 
+br {
+            display: block; /* makes it have a width */
+            content: ""; /* clears default height */
+            margin-top: 5px; /* change this to whatever height you want it */
 }
 
 

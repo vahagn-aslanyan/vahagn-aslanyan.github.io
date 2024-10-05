@@ -34,10 +34,12 @@ h5 {
 	margin-bottom: 5px;
 }
 
-br {
-   display: block;
-   margin: 5px 0;
+br { 
+	display:block; 
+  	  margin-top:10px; 
+  	  line-height:22px; 
 }
+
 
 ul.nav {
     list-style-type: none;

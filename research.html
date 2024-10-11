@@ -71,25 +71,115 @@ In the past I did research in universal algebra studying the first and second or
 
 <br><br>
 
-	<SCRIPT>
-function ShowAndHide() {
-    var x = document.getElementById('SectionName');
+<SCRIPT>
+function ShowHideDPhil() {
+    var x = document.getElementById('DPhil');
     if (x.style.display == 'none') {
         x.style.display = 'block';
     } else {
         x.style.display = 'none';
     }
+    
+    var x = document.getElementById('Papers1');
+    {
+        x.style.display = 'none';
+    }
+    var x = document.getElementById('Papers2');
+    {
+        x.style.display = 'none';
+    }
+    
+    var x = document.getElementById('Talks');
+    {
+        x.style.display = 'none';
+    }
+    
+}
+
+
+function ShowHidePapers1() {
+    var x = document.getElementById('Papers1');
+    if (x.style.display == 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+    
+    var x = document.getElementById('DPhil');
+    {
+        x.style.display = 'none';
+    }
+    var x = document.getElementById('Papers2');
+    {
+        x.style.display = 'none';
+    }
+    
+    var x = document.getElementById('Talks');
+    {
+        x.style.display = 'none';
+    }
+    
+}
+
+function ShowHidePapers2() {
+    var x = document.getElementById('Papers2');
+    if (x.style.display == 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+    
+    var x = document.getElementById('DPhil');
+    {
+        x.style.display = 'none';
+    }
+    var x = document.getElementById('Papers1');
+    {
+        x.style.display = 'none';
+    }
+    
+    var x = document.getElementById('Talks');
+    {
+        x.style.display = 'none';
+    }
+    
+}
+
+
+function ShowHideTalks() {
+    var x = document.getElementById('Talks');
+    if (x.style.display == 'none') {
+        x.style.display = 'block';
+    } else {
+        x.style.display = 'none';
+    }
+    
+    var x = document.getElementById('DPhil');
+    {
+        x.style.display = 'none';
+    }
+    var x = document.getElementById('Papers1');
+    {
+        x.style.display = 'none';
+    }
+    
+    var x = document.getElementById('Papers2');
+    {
+        x.style.display = 'none';
+    }
+    
 }
 </SCRIPT>
 
-<BUTTON ONCLICK="ShowAndHide()"><h3 style = "color:#900C3F;" id="thesis">DPhil Thesis</h3></BUTTON>
+<BUTTON ONCLICK="ShowHideDPhil()"><h3 style = "color:#900C3F;" id="thesis">DPhil Thesis</h3></BUTTON>
+<BUTTON ONCLICK="ShowHidePapers1()"><h3 style = "color:#900C3F;">Papers (by category)</h3></BUTTON>
+<BUTTON ONCLICK="ShowHidePapers2()"><h3 style = "color:#900C3F;">Papers (chronologically)</h3></BUTTON>
+<BUTTON ONCLICK="ShowHideTalks()"><h3 style = "color:#900C3F;">Talks</h3></BUTTON>
 
-<DIV ID="SectionName" STYLE="display:none"><p><a href="./thesis.pdf">Ax-Schanuel Type Inequalities in Differentially Closed Fields</a>, University of Oxford, April 2017.</p></DIV>
 
-
-<BUTTON ONCLICK="ShowAndHide()"><h3 style = "color:#900C3F;">Papers (by category)</h3></BUTTON>
-
-<DIV ID="SectionName" STYLE="display:none"><h4>Expository papers</h4>
+<DIV ID="DPhil" STYLE="display:none"><p><a href="./thesis.pdf">Ax-Schanuel Type Inequalities in Differentially Closed Fields</a>, University of Oxford, April 2017.</p></DIV>
+<DIV ID="Papers1" STYLE="display:none">
+<h4>Expository papers</h4>
 
 <ul>
 
@@ -301,6 +391,8 @@ Logic</i></a>, 82:4 (2017), pp. 1252-1277.</li>
 <i>Logic Journal of the IGPL</i>, 20(2012), pp. 1153-1174.</li>
 </ul>
 </DIV>
+<DIV ID="Papers2" STYLE="display:none">Papers2</DIV>
+<DIV ID="Talks" STYLE="display:none">Talks</DIV>
 <br>	
 
 <h3 style = "color:#900C3F;">Papers (by category)</h3>

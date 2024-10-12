@@ -177,6 +177,7 @@ table.courses td+td { width: 88%; }
 }
 
 
+
 figure {
     display: inline-block;
     border: none;
@@ -187,7 +188,7 @@ figure img {
 }
 figure figcaption {
     border: none;
-    text-align: center;
+    text-align: auto;
 }
 
 .header {

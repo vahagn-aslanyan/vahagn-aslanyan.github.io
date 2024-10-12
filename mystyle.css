@@ -188,7 +188,7 @@ figure img {
 }
 figure figcaption {
     border: none;
-    text-align: auto;
+    text-align: center;
 }
 
 .header {

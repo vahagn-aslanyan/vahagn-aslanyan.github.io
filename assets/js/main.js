@@ -73,19 +73,36 @@
     filter();
   }
 
-  // Old section fragments keep working; direct links also open enclosing details.
+  // Let the browser handle normal section links. Only correct its position when
+  // a legacy fragment is mapped or the target's hidden content is revealed.
   const oldFragments = { Papers1: 'papers', Papers2: 'papers', Talks: 'talks', Projects: 'projects', Students: 'group', DPhil: 'thesis' };
+  let pendingHashScroll = 0;
   function revealHash() {
+    cancelAnimationFrame(pendingHashScroll);
+    pendingHashScroll = 0;
+    const hash = location.hash;
     let id;
-    try { id = decodeURIComponent(location.hash.slice(1)); } catch { return; }
+    try { id = decodeURIComponent(hash.slice(1)); } catch { return; }
     if (!id) return;
     const target = document.getElementById(oldFragments[id] || id);
     if (!target) return;
-    if (target.classList.contains('publication') && target.hidden) resetPublications();
-    for (let ancestor = target; ancestor; ancestor = ancestor.parentElement) {
-      if (ancestor.tagName === 'DETAILS') ancestor.open = true;
+    let needsScroll = target.id !== id;
+    if (target.classList.contains('publication') && target.hidden) {
+      resetPublications();
+      needsScroll = true;
     }
-    requestAnimationFrame(() => target.scrollIntoView({ block: 'start', behavior: 'instant' }));
+    for (let ancestor = target; ancestor; ancestor = ancestor.parentElement) {
+      if (ancestor.tagName === 'DETAILS' && !ancestor.open) {
+        ancestor.open = true;
+        needsScroll = true;
+      }
+    }
+    if (!needsScroll) return;
+    pendingHashScroll = requestAnimationFrame(() => {
+      pendingHashScroll = 0;
+      // A later section click must never be undone by a queued earlier jump.
+      if (location.hash === hash) target.scrollIntoView({ block: 'start', behavior: 'instant' });
+    });
   }
   addEventListener('hashchange', revealHash);
   revealHash();

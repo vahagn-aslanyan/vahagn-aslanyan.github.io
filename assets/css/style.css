@@ -14,7 +14,8 @@
   --serif: Georgia, "Times New Roman", serif;
 }
 *, *::before, *::after { box-sizing: border-box; }
-html { scroll-behavior: smooth; scroll-padding-top: 1.5rem; }
+/* Direct section jumps stay stable when research explanations are expanded. */
+html { scroll-behavior: auto; scroll-padding-top: 1.5rem; }
 body { margin: 0; background: var(--paper); color: var(--ink); font: 1.125rem/1.65 var(--serif); }
 img { display: block; max-width: 100%; height: auto; }
 svg { max-width: 100%; }

@@ -73,82 +73,54 @@
     filter();
   }
 
-  // Section clicks must replace an unfinished keyboard/wheel scroll, rather
-  // than let its remaining animation move the page away from the new target.
+  // Let the browser handle normal section links. Only correct its position when
+  // a legacy fragment is mapped or the target's hidden content is revealed.
   const oldFragments = { Papers1: 'papers', Papers2: 'papers', Talks: 'talks', Projects: 'projects', Students: 'group', DPhil: 'thesis' };
   let pendingHashScroll = 0;
-  function cancelHashScroll() {
+  function revealHash() {
     cancelAnimationFrame(pendingHashScroll);
     pendingHashScroll = 0;
-  }
-  function hashTarget(hash) {
+    const hash = location.hash;
     let id;
-    try { id = decodeURIComponent(hash.slice(1)); } catch { return null; }
-    if (!id) return null;
-    const mapped = Object.prototype.hasOwnProperty.call(oldFragments, id) ? oldFragments[id] : id;
-    const target = document.getElementById(mapped);
-    return target ? { target, remapped: mapped !== id } : null;
-  }
-  function revealTarget(target) {
-    let changed = false;
+    try { id = decodeURIComponent(hash.slice(1)); } catch { return; }
+    if (!id) return;
+    const target = document.getElementById(oldFragments[id] || id);
+    if (!target) return;
+    let needsScroll = target.id !== id;
     if (target.classList.contains('publication') && target.hidden) {
       resetPublications();
-      changed = true;
+      needsScroll = true;
     }
     for (let ancestor = target; ancestor; ancestor = ancestor.parentElement) {
       if (ancestor.tagName === 'DETAILS' && !ancestor.open) {
         ancestor.open = true;
-        changed = true;
+        needsScroll = true;
       }
     }
-    return changed;
-  }
-  function jumpToTarget(target, moveFocus = false) {
-    // In Chromium an instant scroll can *adjust* an ongoing user animation
-    // without cancelling it. A smooth request to the CURRENT position cancels
-    // that animation without moving the viewport. Then make one instant jump.
-    window.scrollTo({ left: window.scrollX, top: window.scrollY, behavior: 'smooth' });
-    if (moveFocus) {
-      if (!target.hasAttribute('tabindex')) target.setAttribute('tabindex', '-1');
-      target.focus({ preventScroll: true });
-    }
-    target.scrollIntoView({ block: 'start', inline: 'nearest', behavior: 'instant' });
-  }
-  document.addEventListener('click', event => {
-    if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
-    const link = event.target.closest?.('a[href]');
-    if (!link || link.hasAttribute('download') || (link.target && link.target !== '_self')) return;
-    const url = new URL(link.href, location.href);
-    if (url.origin !== location.origin || url.pathname !== location.pathname || url.search !== location.search) return;
-    const destination = hashTarget(url.hash);
-    if (!destination) return;
-    // pushState changes the address/history without starting native fragment
-    // scrolling. Leave native navigation intact if history is unavailable.
-    try {
-      if (url.hash !== location.hash) history.pushState(null, '', url.hash);
-    } catch { return; }
-    event.preventDefault();
-    cancelHashScroll();
-    revealTarget(destination.target);
-    jumpToTarget(destination.target, true);
-  });
-
-  // Address-bar/deep links and Back/Forward retain browser history behaviour.
-  // Correct the position only if content had to be revealed or an alias mapped.
-  function revealHash() {
-    cancelHashScroll();
-    const hash = location.hash;
-    const destination = hashTarget(hash);
-    if (!destination) return;
-    const changed = revealTarget(destination.target);
-    if (!changed && !destination.remapped) return;
+    if (!needsScroll) return;
     pendingHashScroll = requestAnimationFrame(() => {
       pendingHashScroll = 0;
-      if (location.hash === hash) jumpToTarget(destination.target);
+      // A later section click must never be undone by a queued earlier jump.
+      if (location.hash === hash) target.scrollIntoView({ block: 'start', behavior: 'instant' });
     });
   }
   addEventListener('hashchange', revealHash);
   revealHash();
+
+  // Let readers close a long explanation from its end and return to its title.
+  document.querySelectorAll('[data-close-theme]').forEach(button => {
+    const details = button.closest('.theme-details');
+    const summary = details?.querySelector('summary');
+    if (!summary) return;
+    button.addEventListener('click', () => {
+      cancelAnimationFrame(pendingHashScroll);
+      pendingHashScroll = 0;
+      details.open = false;
+      summary.focus({ preventScroll: true });
+      summary.scrollIntoView({ block: 'start', behavior: 'instant' });
+    });
+    button.hidden = false;
+  });
 
   // Include collapsed research explanations and older talks in printed copies.
   let printState = [];

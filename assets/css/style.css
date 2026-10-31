@@ -22,7 +22,7 @@ svg { max-width: 100%; }
 [hidden] { display: none !important; }
 a { color: var(--navy); text-decoration-thickness: .06em; text-underline-offset: .18em; overflow-wrap: anywhere; }
 a:hover { color: var(--accent); }
-a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible, [tabindex="-1"]:focus-visible { outline: 3px solid var(--accent); outline-offset: 4px; }
 button, input, select { font: inherit; }
 button { cursor: pointer; }
 button, summary, input, select { -webkit-tap-highlight-color: transparent; }
